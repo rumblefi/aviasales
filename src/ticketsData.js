@@ -11,7 +11,11 @@ export const ticketsData = [
         "arrival_time": "22:10",
         "carrier": "TK",
         "stops": 3,
-        "price": 12400
+        "prices": {
+            "price_rub": 12400,
+            "price_usd": 189.2,
+            "price_eur": 166.63
+        }
     }, {
         "id": 2,
         "origin": "VVO",
@@ -24,7 +28,11 @@ export const ticketsData = [
         "arrival_time": "23:50",
         "carrier": "S7",
         "stops": 1,
-        "price": 13100
+        "prices": {
+            "price_rub": 13100,
+            "price_usd": 199.88,
+            "price_eur": 176.04
+        }
     }, {
         "id": 3,
         "origin": "VVO",
@@ -37,7 +45,11 @@ export const ticketsData = [
         "arrival_time": "18:10",
         "carrier": "SU",
         "stops": 0,
-        "price": 15300
+        "prices": {
+            "price_rub": 15300,
+            "price_usd": 233.44,
+            "price_eur": 205.6
+        }
     }, {
         "id": 4,
         "origin": "VVO",
@@ -50,7 +62,11 @@ export const ticketsData = [
         "arrival_time": "23:30",
         "carrier": "TK",
         "stops": 2,
-        "price": 11000
+        "prices":{
+            "price_rub": 11000,
+            "price_usd": 167.84,
+            "price_eur": 147.82
+        }
     }, {
         "id": 5,
         "origin": "VVO",
@@ -63,9 +79,13 @@ export const ticketsData = [
         "arrival_time": "20:15",
         "carrier": "BA",
         "stops": 3,
-        "price": 13400
+        "prices": {
+            "price_rub": 13400,
+            "price_usd": 204.45,
+            "price_eur": 180.07
+        }
     }, {
-        "id": 5,
+        "id": 6,
         "origin": "VVO",
         "origin_name": "Владивосток",
         "destination": "TLV",
@@ -76,9 +96,13 @@ export const ticketsData = [
         "arrival_time": "19:25",
         "carrier": "SU",
         "stops": 3,
-        "price": 12450
+        "prices":{
+            "price_rub": 12450,
+            "price_usd": 189.96,
+            "price_eur": 167.31
+        }
     }, {
-        "id": 6,
+        "id": 7,
         "origin": "VVO",
         "origin_name": "Владивосток",
         "destination": "TLV",
@@ -89,9 +113,13 @@ export const ticketsData = [
         "arrival_time": "23:45",
         "carrier": "TK",
         "stops": 1,
-        "price": 13600
+        "prices": {
+            "price_rub": 13600,
+            "price_usd": 207.51,
+            "price_eur": 182.76
+        }
     }, {
-        "id": 7,
+        "id": 8,
         "origin": "VVO",
         "origin_name": "Владивосток",
         "destination": "TLV",
@@ -102,9 +130,13 @@ export const ticketsData = [
         "arrival_time": "15:25",
         "carrier": "TK",
         "stops": 0,
-        "price": 14250
+        "prices": {
+            "price_rub": 14250,
+            "price_usd": 217.42,
+            "price_eur": 191.49
+        }
     }, {
-        "id": 8,
+        "id": 9,
         "origin": "VVO",
         "origin_name": "Владивосток",
         "destination": "TLV",
@@ -115,9 +147,13 @@ export const ticketsData = [
         "arrival_time": "23:35",
         "carrier": "SU",
         "stops": 1,
-        "price": 16700
+        "prices": {
+            "price_rub": 16700,
+            "price_usd": 254.81,
+            "price_eur": 224.42
+        }
     }, {
-        "id": 9,
+        "id": 10,
         "origin": "VVO",
         "origin_name": "Владивосток",
         "destination": "TLV",
@@ -128,6 +164,10 @@ export const ticketsData = [
         "arrival_time": "16:15",
         "carrier": "S7",
         "stops": 0,
-        "price": 17400
+        "prices": {
+            "price_rub": 17400,
+            "price_usd": 265.49,
+            "price_eur": 233.83
+        }
     }
 ]

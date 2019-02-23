@@ -7,7 +7,7 @@ const TicketButton = ({price}) => {
 		<button type="button" className="ticket-button">
 			Купить
 			<br />
-			за {price} ₽
+			за {price} 
 		</button>
 	)
 	
