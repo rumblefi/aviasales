@@ -2,21 +2,11 @@ import React from 'react'
 import './Tickets.scss'
 import Ticket from '../Ticket/Ticket';
 
-const Tickets = () => {
+const Tickets = ({ticketsData}) => {
 
     return (
         <div className="tickets" >
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
-			<Ticket />
+			<Ticket ticketData={ticketsData} />
 		</div>
     )
 
