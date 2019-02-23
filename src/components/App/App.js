@@ -1,8 +1,8 @@
 import React from 'react'
-import 'normalize.css/normalize.css'
 import './App.scss'
 import Header from '../Header/Header';
 import Filters from '../Filters/Filters';
+import Tickets from '../Tickets/Tickets';
 
 export default class App extends React.Component{
 
@@ -12,9 +12,7 @@ export default class App extends React.Component{
 				<Header />
 				<div className="app__container">
 					<Filters />
-					<div className="test">
-						<h1>11</h1>
-					</div>
+					<Tickets />
 				</div>
 			</div>
 		)

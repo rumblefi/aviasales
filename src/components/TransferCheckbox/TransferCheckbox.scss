@@ -1,0 +1,43 @@
+.transfer-checkbox{
+	position: relative;
+	margin-right: 10px;
+
+	&__input{
+		position: absolute;
+		opacity: 0;
+
+		&:checked{
+
+			& + .transfer-checkbox__custom{
+				border-color: #2196F3;
+
+				img{
+					opacity: 1;
+				}
+
+			}
+
+		}
+
+	}
+
+	&__custom{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 19px;
+		height: 19px;
+		border-radius: 3px;
+		border: 1px solid #D2D5D6;
+		transition: 0.3s border-color;
+
+		img{
+			width: 10px;
+			height: 10px;
+			opacity: 0;
+			transition: 0.3s opacity;
+		}
+
+	}
+
+}

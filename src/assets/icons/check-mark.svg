@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3e9ce8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path id="Rectangle_32" data-name="Rectangle 32" class="cls-1" d="M-2,0-4,2,0,6" transform="translate(1 1) rotate(-90)"/>
+</svg>

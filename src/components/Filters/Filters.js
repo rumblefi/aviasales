@@ -2,6 +2,7 @@ import React from 'react'
 import './Filters.scss'
 import CurrencyFilters from '../CurrencyFilters/CurrencyFilters';
 import FiltersBlock from '../FiltersBlock/FiltersBlock';
+import TransferFilters from '../TransferFilters/TransferFilters';
 
 const Filters = () => {
 
@@ -10,6 +11,9 @@ const Filters = () => {
 			<div className="filters__inner">
 				<FiltersBlock title="Валюта" >
 					<CurrencyFilters />
+				</FiltersBlock>
+				<FiltersBlock title="Количество пересадок" >
+					<TransferFilters />
 				</FiltersBlock>
 			</div>
 		</div>

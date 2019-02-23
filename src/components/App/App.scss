@@ -1,24 +1,7 @@
-html {
-    box-sizing: border-box;
-}
-*,
-*:after,
-*:before {
-    box-sizing: inherit;
-}
-
-*{
-	outline: 0;
-}
-
-body{
-    font-family: 'Open Sans', sans-serif;
-    color: #4A4A4A;
-}
-
 .app{
     background-color: #F3F7FA;
     min-height: 100vh;
+    padding-bottom: 20px;
 
     &__container{
         display: flex;
@@ -29,10 +12,4 @@ body{
         margin-right: auto;
     }
 
-}
-
-.test{
-    background-color: #ffffff;
-    flex-grow: 1;
-    margin-left: 20px;
 }

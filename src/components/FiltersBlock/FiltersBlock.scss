@@ -1,4 +1,9 @@
 .filters-block{
+	margin-bottom: 30px;
+
+	&:last-child{
+		margin-bottom: 0;
+	}
 
 	&__title{
 		font-size: 12px;

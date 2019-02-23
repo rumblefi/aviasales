@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d2d5d6;
+      }
+    </style>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-328 -39)">
+    <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" width="96" height="1" transform="translate(328 45)"/>
+    <g id="ic_airplanemode_active_black_24px" transform="translate(439 39) rotate(90)">
+      <path id="Shape" class="cls-1" d="M13,9.1V7.8L7.526,4.55V.975a1.028,1.028,0,0,0-2.053,0V4.55L0,7.8V9.1L5.474,7.475V11.05l-1.368.975V13L6.5,12.35,8.895,13v-.975L7.526,11.05V7.475Z" transform="translate(0 1)"/>
+    </g>
+  </g>
+</svg>
