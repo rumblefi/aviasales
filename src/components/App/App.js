@@ -20,7 +20,7 @@ export default class App extends React.Component{
 				<Header />
 				<div className="app__container">
 					<Filters />
-					<Tickets ticketsData={ticketsData[0]} />
+					<Tickets ticketsData={ticketsData} />
 				</div>
 			</div>
 		)

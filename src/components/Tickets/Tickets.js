@@ -4,9 +4,13 @@ import Ticket from '../Ticket/Ticket';
 
 const Tickets = ({ticketsData}) => {
 
+    const tickets = ticketsData.map( ticket =>  
+        <Ticket key={ticket.id} ticketData={ticket} />
+    )
+
     return (
         <div className="tickets" >
-			<Ticket ticketData={ticketsData} />
+            {tickets}
 		</div>
     )
 
