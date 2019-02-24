@@ -2,7 +2,7 @@ import React from 'react'
 import './CurrencyFilter.scss'
 import classNames from 'classnames'
 
-const CurrencyFilter = ({text,active}) => {
+const CurrencyFilter = ({text,active,onClick}) => {
 
 	const clazz = classNames({
 		'currency-filter': true,
@@ -10,7 +10,7 @@ const CurrencyFilter = ({text,active}) => {
 	})
 
 	return(
-		<button className={clazz}>{text}</button>
+		<button className={clazz} onClick={onClick} >{text}</button>
 	)
 	
 }

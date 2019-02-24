@@ -10,7 +10,7 @@ export default class App extends React.Component{
 	state = {
 		ticketsData,
 		currencyFilter: 'rub',
-		transferFilter: 'transfer_3' //transfer_all, transfer_without, transfer_1, transfer_2, transfer_3
+		transferFilter: 'transfer_all' //transfer_all, transfer_without, transfer_1, transfer_2, transfer_3
 	}
 
 	doTransferFilter(tickets,filterName) {
@@ -30,6 +30,10 @@ export default class App extends React.Component{
 		}
 	}
 
+	onCurrencyFilter = (currencyFilter) => {
+		this.setState({currencyFilter})
+	}
+
 	render() {
 
 		const {ticketsData,currencyFilter,transferFilter} = this.state
@@ -40,7 +44,7 @@ export default class App extends React.Component{
 			<div className="app">
 				<Header />
 				<div className="app__container">
-					<Filters />
+					<Filters currencyFilter={currencyFilter} onCurrencyFilter={this.onCurrencyFilter} />
 					<Tickets ticketsData={filterTicketsData} currencyFilterVal={currencyFilter} />
 				</div>
 			</div>
