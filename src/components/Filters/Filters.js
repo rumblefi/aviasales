@@ -4,7 +4,7 @@ import CurrencyFilters from '../CurrencyFilters/CurrencyFilters';
 import FiltersBlock from '../FiltersBlock/FiltersBlock';
 import TransferFilters from '../TransferFilters/TransferFilters';
 
-const Filters = ({currencyFilter,onCurrencyFilter}) => {
+const Filters = ({currencyFilter,onCurrencyFilter,onTransferFilterChange}) => {
 
 	return(
 		<div className="filters" >
@@ -13,7 +13,7 @@ const Filters = ({currencyFilter,onCurrencyFilter}) => {
 					<CurrencyFilters currencyFilter={currencyFilter} onCurrencyFilter={onCurrencyFilter} />
 				</FiltersBlock>
 				<FiltersBlock title="Количество пересадок" >
-					<TransferFilters />
+					<TransferFilters onTransferFilterChange={onTransferFilterChange} />
 				</FiltersBlock>
 			</div>
 		</div>

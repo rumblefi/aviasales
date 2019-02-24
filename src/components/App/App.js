@@ -8,44 +8,103 @@ import {ticketsData} from '../../ticketsData'
 export default class App extends React.Component{
 
 	state = {
-		ticketsData,
+		defaultTicketsData: ticketsData,
+		filterTicketData: ticketsData,
 		currencyFilter: 'rub',
 		transferFilter: 'transfer_all' //transfer_all, transfer_without, transfer_1, transfer_2, transfer_3
-	}
-
-	doTransferFilter(tickets,filterName) {
-		switch(filterName) {
-			case 'transfer_all':
-				return tickets
-			case 'transfer_without':
-				return tickets.filter( ticket => ticket.stops === 0 )
-			case 'transfer_1':
-				return tickets.filter( ticket => ticket.stops === 1 )
-			case 'transfer_2':
-				return tickets.filter( ticket => ticket.stops === 2 )
-			case 'transfer_3':
-				return tickets.filter( ticket => ticket.stops === 3 )			
-			default:
-				return tickets
-		}
 	}
 
 	onCurrencyFilter = (currencyFilter) => {
 		this.setState({currencyFilter})
 	}
 
+	onTransferFilterChange = (event) => {
+		const filter = event.target
+		const filterName = filter.name
+		const filterChecked = filter.checked
+
+		this.setState( (state) =>  {
+			const copyDefaultTickets = state.defaultTicketsData
+
+			if(filterChecked) {
+
+				let filterTicketData 
+				
+				if(filterName === 'transfer_without') {
+					filterTicketData = copyDefaultTickets.filter( ticket => ticket.stops === 0 )
+				}
+
+				else if(filterName === 'transfer_1') {
+					filterTicketData = copyDefaultTickets.filter( ticket => ticket.stops === 1 )
+				}
+
+				else if(filterName === 'transfer_2') {
+					filterTicketData = copyDefaultTickets.filter( ticket => ticket.stops === 2 )
+				}
+
+				else if(filterName === 'transfer_3') {
+					filterTicketData = copyDefaultTickets.filter( ticket => ticket.stops === 2 )
+				}
+
+				else{
+
+					filterTicketData = copyDefaultTickets
+
+				}
+
+				return{
+					filterTicketData: [...state.filterTicketData, ...filterTicketData]
+				}
+
+			}
+
+			else{
+
+				let newFilterTickets 
+				
+				if(filterName === 'transfer_without') {
+					newFilterTickets = state.filterTicketData.filter( ticket => ticket.stops !== 0 )
+				}
+
+				else if(filterName === 'transfer_1') {
+					newFilterTickets = state.filterTicketData.filter( ticket => ticket.stops !== 1 )
+				}
+
+				else if(filterName === 'transfer_2') {
+					newFilterTickets = state.filterTicketData.filter( ticket => ticket.stops !== 2 )
+				}
+
+				else if(filterName === 'transfer_3') {
+					newFilterTickets = state.filterTicketData.filter( ticket => ticket.stops !== 3 )
+				}
+
+				else{
+
+					newFilterTickets = []
+
+				}
+
+				return{
+					filterTicketData: newFilterTickets
+				}
+
+			}
+
+
+		})
+
+	}
+
 	render() {
 
 		const {ticketsData,currencyFilter,transferFilter} = this.state
-
-		const filterTicketsData = this.doTransferFilter(ticketsData,transferFilter)
 
 		return(
 			<div className="app">
 				<Header />
 				<div className="app__container">
-					<Filters currencyFilter={currencyFilter} onCurrencyFilter={this.onCurrencyFilter} />
-					<Tickets ticketsData={filterTicketsData} currencyFilterVal={currencyFilter} />
+					<Filters currencyFilter={currencyFilter} onCurrencyFilter={this.onCurrencyFilter} onTransferFilterChange={this.onTransferFilterChange} />
+					<Tickets ticketsData={this.state.filterTicketData} currencyFilterVal={currencyFilter} />
 				</div>
 			</div>
 		)
