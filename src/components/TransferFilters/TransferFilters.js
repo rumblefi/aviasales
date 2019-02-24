@@ -49,8 +49,9 @@ export default class TransferFilters extends React.Component {
         const {transferFilters} = this.state
         const target = e.target
         transferFilters.forEach(filter => {
-            if (filter.name === target.name) 
-                filter.checked = target.checked
+            if (filter.name === target.name) {
+                filter.checked = target.checked   
+            }
         })
         this.setState({transferFilters})
     }
