@@ -2,29 +2,13 @@ import React from 'react'
 import './Ticket.scss'
 import ticketLogo from '../../assets/ticketLogo.svg'
 import TicketCol from '../TicketCol/TicketCol'
-import TicketLogo from '../TicketLogo/TicketLogo';
-import TicketButton from '../TicketButton/TicketButton';
-import TicketInfoBlock from '../TicketInfoBlock/TicketInfoBlock';
-import TicketTransfer from '../TicketTransfer/TicketTransfer';
-import {formatPrice} from '../../helpers.js';
+import TicketLogo from '../TicketLogo/TicketLogo'
+import TicketButton from '../TicketButton/TicketButton'
+import TicketInfoBlock from '../TicketInfoBlock/TicketInfoBlock'
+import TicketTransfer from '../TicketTransfer/TicketTransfer'
+
 
 export default class Ticket extends React.Component {
-
-    checkCurrency(currencyFilterVal) {
-        const {price_rub, price_usd, price_eur} = this.props.ticketData.prices
-        
-        switch (currencyFilterVal) {
-            case 'rub':
-                return `${formatPrice(price_rub)} ₽`
-            case 'usd':
-                return `${formatPrice(price_usd)} $`
-            case 'eur':
-                return `${formatPrice(price_eur)} €`
-            default:
-                return `${formatPrice(price_rub)} ₽`
-        }
-
-    }
 
     render() {
 
@@ -38,7 +22,8 @@ export default class Ticket extends React.Component {
                 departure_time,
                 arrival_date,
                 arrival_time,
-                stops
+                stops,
+                prices
             },
             currencyFilterVal
         } = this.props
@@ -47,7 +32,7 @@ export default class Ticket extends React.Component {
             <div className="ticket">
                 <TicketCol modificator="ticket-col--left">
                     <TicketLogo imgSrc={ticketLogo}/>
-                    <TicketButton price={this.checkCurrency(currencyFilterVal)}/>
+                    <TicketButton price={prices} currencyFilterVal={currencyFilterVal} />
                 </TicketCol>
                 <TicketCol modificator="ticket-col--right">
                     <TicketInfoBlock
