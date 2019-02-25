@@ -1,6 +1,7 @@
 import React from 'react'
 import './TicketInfoBlock.scss'
 import classNames from 'classnames'
+import {formatDate} from '../../helpers'
 
 const TicketInfoBlock = ({ data: {time,city,city_name,date}, modificator }) => {
 
@@ -10,7 +11,7 @@ const TicketInfoBlock = ({ data: {time,city,city_name,date}, modificator }) => {
 		<div className={clazz}>
 			<div className="ticket-info-block__time">{time}</div>
 			<div className="ticket-info-block__city">{city}, {city_name}</div>
-			<div className="ticket-info-block__date">{date}</div>
+			<div className="ticket-info-block__date">{formatDate(date)}</div>
 		</div>
 	)
 	

@@ -48,28 +48,28 @@ export default class App extends React.Component {
         }
     }
 
-    onTransferFilterChange = (event) => {
-        const filter = event.target
-        const filterName = filter.name
-        const filterChecked = filter.checked
+    // onTransferFilterChange = (event) => {
+    //     const filter = event.target
+    //     const filterName = filter.name
+    //     const filterChecked = filter.checked
 
-        this.setState(({initialTicketsData, filtersTicketData}) => {
-            if (filterChecked) {
-                return {
-                    filtersTicketData: [
-                        ...this.pushFilteredTickets(initialTicketsData, filterName),
-                        ...filtersTicketData
-                    ]
-                }
-            } else {
-                return {
-                    filtersTicketData: this.removeFilteredTickets(filtersTicketData, filterName)
-                }
-            }
+    //     this.setState(({initialTicketsData, filtersTicketData}) => {
+    //         if (filterChecked) {
+    //             return {
+    //                 filtersTicketData: [
+    //                     ...this.pushFilteredTickets(initialTicketsData, filterName),
+    //                     ...filtersTicketData
+    //                 ]
+    //             }
+    //         } else {
+    //             return {
+    //                 filtersTicketData: this.removeFilteredTickets(filtersTicketData, filterName)
+    //             }
+    //         }
 
-        })
+    //     })
 
-    }
+    // }
 
     render() {
 

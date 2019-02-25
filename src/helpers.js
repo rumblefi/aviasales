@@ -12,7 +12,7 @@ const toMMDDYYY = (dateStr) => {
 }
 
 const getMonthName = (number) => {
-    const months = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя','дек']
+    const months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя','дек']
     return months[number]
 }
 
