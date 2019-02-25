@@ -6,6 +6,7 @@ import TicketLogo from '../TicketLogo/TicketLogo';
 import TicketButton from '../TicketButton/TicketButton';
 import TicketInfoBlock from '../TicketInfoBlock/TicketInfoBlock';
 import TicketTransfer from '../TicketTransfer/TicketTransfer';
+import {formatPrice} from '../../helpers.js';
 
 export default class Ticket extends React.Component {
 
@@ -14,13 +15,13 @@ export default class Ticket extends React.Component {
         
         switch (currencyFilterVal) {
             case 'rub':
-                return `${price_rub} ₽`
+                return `${formatPrice(price_rub)} ₽`
             case 'usd':
-                return `${price_usd} $`
+                return `${formatPrice(price_usd)} $`
             case 'eur':
-                return `${price_eur} €`
+                return `${formatPrice(price_eur)} €`
             default:
-                return `${price_rub} ₽`
+                return `${formatPrice(price_rub)} ₽`
         }
 
     }

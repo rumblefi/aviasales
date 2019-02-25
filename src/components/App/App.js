@@ -57,8 +57,8 @@ export default class App extends React.Component {
             if (filterChecked) {
                 return {
                     filtersTicketData: [
-                        ...filtersTicketData,
-                        ...this.pushFilteredTickets(initialTicketsData, filterName)
+                        ...this.pushFilteredTickets(initialTicketsData, filterName),
+                        ...filtersTicketData
                     ]
                 }
             } else {
