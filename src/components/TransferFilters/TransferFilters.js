@@ -13,25 +13,72 @@ export default class TransferFilters extends React.Component {
             }, {
                 name: 'transfer_without',
                 labelText: 'Без пересадок',
-                checked: false
+                checked: true
             }, {
                 name: 'transfer_1',
                 labelText: '1 пересадка',
-                checked: false
+                checked: true
             }, {
                 name: 'transfer_2',
                 labelText: '2 пересадки',
-                checked: false
+                checked: true
             }, {
                 name: 'transfer_3',
                 labelText: '3 пересадки',
-                checked: false
+                checked: true
             }
         ]
     }
 
+    updateAllFilters(arr,checked) {
+        return arr.map( filter => ({
+            ...filter,
+            checked 
+        }))
+    }
+
+    onFilterAllChange = (event) => {
+        const {target: {name,checked}} = event
+        if(name === 'transfer_all') {
+            this.setState( ({transferFilters}) => ({
+                transferFilters: this.updateAllFilters(transferFilters,checked)
+            }))
+        }
+    }
+
+    updateOneFilter(index,arr,checked) {
+        const item = arr[index]
+        return {
+            ...item,
+            checked
+        }
+    }
+
+    uncheckAllFilter(index,arr) {
+        const item = arr[index]
+        return {
+            ...item,
+            checked: false
+        }
+    }
+    
     onFilterChange = (event) => {
-        alert('1')        
+        const {target: {name,checked}} = event
+        if(name !== 'transfer_all') {
+            this.setState( ({transferFilters}) =>  {
+                const allFilterIndex = transferFilters.findIndex( filter => filter.name === 'transfer_all' )
+                const targetIndex = transferFilters.findIndex( filter => filter.name === name )
+                const newArr = [
+                    this.uncheckAllFilter(allFilterIndex,transferFilters),
+                    ...transferFilters.slice(1,targetIndex),
+                    this.updateOneFilter(targetIndex,transferFilters,checked),
+                    ...transferFilters.slice(targetIndex + 1),
+                ]
+                return{
+                    transferFilters: newArr
+                }
+            })
+        }
     }
 
     render() {
@@ -43,6 +90,7 @@ export default class TransferFilters extends React.Component {
             name={name}
             labelText={labelText}
             checked={checked}
+            onFilterAllChange={this.onFilterAllChange}
             onFilterChange={this.onFilterChange}
             onTransferFilterChange={this.props.onTransferFilterChange}/>)
 
