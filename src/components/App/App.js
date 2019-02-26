@@ -10,42 +10,67 @@ export default class App extends React.Component {
     state = {
         initialTicketsData: ticketsData,
         filtersTicketData: ticketsData,
-        currencyFilter: 'rub',
-        transferFilter: 'transfer_all' //transfer_all, transfer_without, transfer_1, transfer_2, transfer_3
+        currencyFilter: 'rub'
     }
 
     onCurrencyFilter = (currencyFilter) => {
         this.setState({currencyFilter})
     }
 
-    pushFilteredTickets(tickets, filterName) {
-        switch (filterName) {
+    filterInitialTicketData(initialTicketsData,filtersTicketData,propVal) {
+        return [...initialTicketsData.filter( item => item.stops === propVal ), ...filtersTicketData ]
+    }
+
+    pushFiltersTicketData(initialTicketsData,filtersTicketData,filterName) {
+        switch(filterName) {
             case 'transfer_without':
-                return tickets.filter(ticket => ticket.stops === 0)
-            case 'transfer_1':
-                return tickets.filter(ticket => ticket.stops === 1)
-            case 'transfer_2':
-                return tickets.filter(ticket => ticket.stops === 2)
-            case 'transfer_3':
-                return tickets.filter(ticket => ticket.stops === 3)
+                return this.filterInitialTicketData(initialTicketsData,filtersTicketData,0)
+            case 'transfer_1':    
+                return this.filterInitialTicketData(initialTicketsData,filtersTicketData,1)
+            case 'transfer_2':    
+                return this.filterInitialTicketData(initialTicketsData,filtersTicketData,2)
+            case 'transfer_3':    
+                return this.filterInitialTicketData(initialTicketsData,filtersTicketData,3)        
             default:
-                return tickets
+                return initialTicketsData    
         }
     }
 
-    removeFilteredTickets(tickets, filterName) {
-        switch (filterName) {
+    filterFiltersTicketData(filtersTicketData,propVal) {
+        return [...filtersTicketData.filter( item => item.stops !== propVal )]
+    }
+
+    removeFilteredTickets(filtersTicketData,filterName) {
+        switch(filterName) {
             case 'transfer_without':
-                return tickets.filter(ticket => ticket.stops !== 0)
+                return this.filterFiltersTicketData(filtersTicketData,0)
             case 'transfer_1':
-                return tickets.filter(ticket => ticket.stops !== 1)
+                return this.filterFiltersTicketData(filtersTicketData,1)
             case 'transfer_2':
-                return tickets.filter(ticket => ticket.stops !== 2)
+                return this.filterFiltersTicketData(filtersTicketData,2)
             case 'transfer_3':
-                return tickets.filter(ticket => ticket.stops !== 3)
+                return this.filterFiltersTicketData(filtersTicketData,3)
             default:
-                return []
+                return []    
         }
+    }
+
+    onTransferFilterChange = (event) => {
+        const {target: {name,checked}} = event
+
+        this.setState( ({initialTicketsData,filtersTicketData}) => {
+            if(checked) {
+                return {
+                    filtersTicketData: this.pushFiltersTicketData(initialTicketsData,filtersTicketData,name)
+                }
+            }
+            else{
+                return {
+                    filtersTicketData: this.removeFilteredTickets(filtersTicketData,name)
+                }
+            }
+        })
+
     }
 
     // onTransferFilterChange = (event) => {
@@ -73,7 +98,7 @@ export default class App extends React.Component {
 
     render() {
 
-        const {currencyFilter} = this.state
+        const {currencyFilter,filtersTicketData} = this.state
 
         return (
             <div className="app">
@@ -84,7 +109,7 @@ export default class App extends React.Component {
                         onCurrencyFilter={this.onCurrencyFilter}
                         onTransferFilterChange={this.onTransferFilterChange}/>
                     <Tickets
-                        ticketsData={this.state.filtersTicketData}
+                        ticketsData={filtersTicketData}
                         currencyFilterVal={currencyFilter}/>
                 </div>
             </div>

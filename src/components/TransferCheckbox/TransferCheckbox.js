@@ -9,7 +9,7 @@ const TransferCheckbox = ({name,checked,onFilterAllChange,onFilterChange,onTrans
 			<input type="checkbox" className="transfer-checkbox__input" name={name} checked={checked} onChange={ (e) => {
 				onFilterAllChange(e)
 				onFilterChange(e)
-				// onTransferFilterChange(e)
+				onTransferFilterChange(e)
 			}} />
 			<div className="transfer-checkbox__custom">
 				<img src={checkMark} alt=""/>
